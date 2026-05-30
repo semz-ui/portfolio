@@ -8,13 +8,13 @@ import {
 } from "lucide-react";
 
 export const profile = {
-  name: "Alex Rivera",
+  name: "Olotu Michael",
   role: "Frontend Engineer",
   tagline: "I build fast, accessible, delightfully animated interfaces.",
   blurb:
     "Frontend engineer with 3+ years crafting production React apps. I obsess over performance budgets, design systems, and the small motion details that make a product feel alive.",
   location: "Remote · Lisbon, PT",
-  email: "hello@alexrivera.dev",
+  email: "michaeltimilehin36@gmail.com",
   resumeUrl: "#",
   socials: {
     github: "https://github.com",
