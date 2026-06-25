@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { profile } from "../data";
+import { Github } from "./BrandIcons";
 
 const links = [
   { label: "About", href: "#about" },
@@ -55,12 +56,23 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden rounded-xl bg-white px-4 py-1.5 text-sm font-medium text-ink-950 transition-transform hover:scale-105 active:scale-95 md:inline-block"
-        >
-          Let's talk
-        </a>
+        <div className="hidden items-center gap-2 md:flex">
+          <a
+            href={profile.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View source on GitHub"
+            className="grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-400 transition-colors hover:text-white"
+          >
+            <Github size={16} />
+          </a>
+          <a
+            href="#contact"
+            className="rounded-xl bg-white px-4 py-1.5 text-sm font-medium text-ink-950 transition-transform hover:scale-105 active:scale-95"
+          >
+            Let's talk
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen((v) => !v)}

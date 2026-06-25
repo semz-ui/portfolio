@@ -16,8 +16,9 @@ export const profile = {
   location: "Remote · Lisbon, PT",
   email: "michaeltimilehin36@gmail.com",
   resumeUrl: "#",
+  sourceUrl: "https://github.com/semz-ui/portfolio",
   socials: {
-    github: "https://github.com",
+    github: "https://github.com/semz-ui",
     linkedin: "https://linkedin.com",
     twitter: "https://twitter.com",
   },
