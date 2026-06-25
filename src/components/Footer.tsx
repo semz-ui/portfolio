@@ -8,12 +8,22 @@ export default function Footer() {
           © {2026} {profile.name}. Crafted with React, Tailwind &amp; Framer
           Motion.
         </p>
-        <a
-          href="#top"
-          className="text-sm text-slate-500 transition-colors hover:text-white"
-        >
-          Back to top ↑
-        </a>
+        <div className="flex items-center gap-5">
+          <a
+            href={profile.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-slate-500 transition-colors hover:text-white"
+          >
+            View Source
+          </a>
+          <a
+            href="#top"
+            className="text-sm text-slate-500 transition-colors hover:text-white"
+          >
+            Back to top ↑
+          </a>
+        </div>
       </div>
     </footer>
   );
