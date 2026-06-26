@@ -1,14 +1,17 @@
-import About from "./components/About";
-import Contact from "./components/Contact";
+import { lazy, Suspense } from "react";
 import Cursor from "./components/Cursor";
-import Experience from "./components/Experience";
-import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
 import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
 import ScrollProgress from "./components/ScrollProgress";
-import Skills from "./components/Skills";
+import { SectionSkeleton } from "./components/PageSkeleton";
+
+const Marquee = lazy(() => import("./components/Marquee"));
+const About = lazy(() => import("./components/About"));
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Experience = lazy(() => import("./components/Experience"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
   return (
@@ -18,14 +21,18 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Marquee />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
+        <Suspense fallback={<SectionSkeleton />}>
+          <Marquee />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
