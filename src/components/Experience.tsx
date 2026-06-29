@@ -17,8 +17,7 @@ export default function Experience() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-sm text-slate-400">
-              Three years across studios, startups, and freelance — always closer
-              to the craft.
+              4+ years across startups, product companies, and volunteer work — fintech, GovTech, EdTech, and food delivery.
             </p>
           </Reveal>
         </div>

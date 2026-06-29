@@ -15,7 +15,7 @@ export const profile = {
     "Frontend engineer with 4+ years shipping user-facing products across fintech, edtech, and HR SaaS. I specialise in React + TypeScript, component-driven design systems, and cross-platform React Native when products need mobile.",
   location: "Lagos, Nigeria · open to remote (AEST / EU / US)",
   email: "michaeltimilehin36@gmail.com",
-  resumeUrl: "#",
+  resumeUrl: "Michael_Olotu_Resume.pdf",
   sourceUrl: "https://github.com/semz-ui/portfolio",
   socials: {
     github: "https://github.com/semz-ui",
@@ -85,6 +85,7 @@ export type Project = {
   accent: string;
   year: string;
   link: string;
+  storeLinks?: { playStore?: string; appStore?: string };
 };
 
 export const projects: Project[] = [
@@ -92,41 +93,53 @@ export const projects: Project[] = [
     title: "Prompt (Grade Up)",
     category: "EdTech · Cross-Platform",
     description:
-      "Exam-prep app shipping web, iOS, and Android from one TypeScript codebase. MVVM architecture across 18 feature modules; Apollo Client v4 + GraphQL Codegen with offline-first caching so the UI stays usable on flaky networks.",
-    tags: ["React", "React Native", "Expo", "TypeScript", "Apollo Client", "GraphQL"],
+      "Architected and led a cross-platform EdTech app (iOS, Android, Web) on React Native + Expo, owning full technical direction end-to-end. Overhauled CI/CD off Bitrise to a self-managed Jenkins + DigitalOcean + Fastlane stack — eliminating $200+/month in vendor cost. Engineered an offline-first data layer with WatermelonDB + GraphQL sync reconciliation for low-connectivity regions.",
+    tags: ["React Native", "Expo", "TypeScript", "WatermelonDB", "GraphQL", "Jenkins", "Fastlane"],
     accent: "from-violet-500/30 to-fuchsia-500/10",
     year: "2025",
     link: "#",
+    storeLinks: {
+      playStore: "https://play.google.com/store/apps/details?id=com.promoprep.gradeup&pcampaignid=web_share",
+      appStore: "https://apps.apple.com/us/app/gradeup-study-smarter/id6762120966",
+    },
   },
   {
     title: "TPay (Taxtech)",
-    category: "Fintech · Web",
+    category: "Fintech · Web + Mobile",
     description:
-      "Loan application, approval, repayment, and salary-disbursement UI. Reduced disbursement errors through stricter client-side validation and cohesive component patterns shared across the product suite.",
+      "Owned and shipped a production fintech platform serving 10,000+ users — full payroll, payslip, and pension remittance flows, seven statutory tax types (PAYE, VAT, WHT, CIT, NHF, ECSL, TET), wallet, invoicing, payment links, and third-party API integrations.",
     tags: ["React", "TypeScript", "Tailwind", "Redux Toolkit"],
     accent: "from-teal-400/30 to-cyan-500/10",
     year: "2024",
-    link: "#",
+    link: "https://tpay.com.ng/",
+    storeLinks: {
+      playStore: "https://play.google.com/store/apps/details?id=ng.com.taxtech.tpay&pcampaignid=web_share",
+      appStore: "https://apps.apple.com/us/app/tpay-payments-bills/id1535069197",
+    },
   },
   {
-    title: "Chowopa",
+    title: "Foodash",
     category: "Food Delivery · Mobile",
     description:
-      "Solo-built the React Native app UI: menu browsing, order placement, and real-time delivery tracking integrated with backend restaurant APIs. Offline caching and image/list optimisations kept the app smooth on 2G/3G networks.",
-    tags: ["React Native", "Expo", "Offline Caching"],
+      "Built and launched a full food delivery app solo while still in university — owned architecture, implementation, and App Store / Play Store deployment end-to-end. Integrated Paystack payment gateway including webhook reconciliation to eliminate failed and stuck transactions.",
+    tags: ["React Native", "Expo", "Paystack", "Offline Caching"],
     accent: "from-amber-400/30 to-orange-500/10",
     year: "2022",
     link: "#",
+    storeLinks: {
+      playStore: "https://play.google.com/store/apps/details?id=com.foodash.client",
+      appStore: "https://apps.apple.com/ng/app/foodash/id6538722491",
+    },
   },
   {
     title: "Chess in Slums Africa",
     category: "Non-profit · Volunteer",
     description:
-      "Built the public website and staff admin dashboard for a Lagos-based non-profit. The dashboard handles donation tracking, content management, and volunteer communications.",
+      "Built and maintained the public-facing site and internal admin dashboard supporting fundraising and program operations. Designed a donation tracking system, CMS modules, and volunteer management tooling — replacing manual workflows with self-serve admin capabilities.",
     tags: ["React", "TypeScript", "Tailwind"],
     accent: "from-sky-400/30 to-indigo-500/10",
     year: "2023",
-    link: "#",
+    link: "https://chessinslumsafrica.com/",
   },
 ];
 
@@ -141,34 +154,34 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     company: "Grade Up",
-    role: "Frontend / Cross-Platform Engineer (Contract)",
-    period: "Dec 2025 — Present",
+    role: "Mobile Engineer (Contract, Remote)",
+    period: "Dec 2025 — Jun 2026",
     description:
-      "Architected Prompt, an EdTech app on React + React Native + Expo shipping web, iOS, and Android from one TypeScript codebase. Designed MVVM architecture across 18 feature modules, built a custom CP* design-system layer, and established full quality gates (Jest, RTL, Detox, ESLint, Husky).",
-    stack: ["React", "React Native", "Expo", "TypeScript", "Apollo Client", "GraphQL"],
+      "Architected and led a cross-platform EdTech app (iOS, Android, Web) on React Native + Expo, owning full technical direction end-to-end. Overhauled CI/CD off Bitrise to a self-managed Jenkins + DigitalOcean + Fastlane stack — eliminating $200+/month in vendor cost while delivering faster builds. Engineered an offline-first data layer with WatermelonDB + GraphQL sync reconciliation for low-connectivity regions. Established the quality bar via Detox E2E, Jest, and enforced lint/commit pipelines. Integrated Sentry, Amplitude, and AppsFlyer for crash triage and product analytics. Mentored an intern engineer through onboarding and code review.",
+    stack: ["React Native", "Expo", "TypeScript", "WatermelonDB", "GraphQL", "Jenkins", "Fastlane", "Detox", "Sentry"],
   },
   {
     company: "Taxtech",
     role: "Frontend Engineer",
     period: "Jul 2024 — Present",
     description:
-      "Shipped TPay (fintech), TLearn (e-learning web + mobile), and THr (HR services). Drove frontend performance optimisations and codified reusable component patterns adopted across the entire product suite.",
-    stack: ["React", "TypeScript", "React Native", "Tailwind", "Redux Toolkit"],
+      "Shipped six production products across fintech, GovTech, and HR SaaS. TPay — a platform serving 10,000+ users with full payroll, payslip, pension, seven statutory tax types, wallet, invoicing, and payment links. TMonee — consumer PWA for bills, levies, and loan management. TMonee Admin + 247 — back-office and loan-underwriting dashboards. THr — end-to-end HR SaaS covering employee records, leave, attendance, and payroll-linked workflows. Oredo Revenue — government tax-revenue system for Oredo LGA with OredoPay public portal and two field enumeration platforms. TBook — a React Native mobile fintech app covering payroll, wallet, loans, and investments.",
+    stack: ["React", "React Native", "TypeScript", "Tailwind", "Redux Toolkit"],
   },
   {
-    company: "Chowopa",
-    role: "Frontend / React Native Developer",
+    company: "Foodash",
+    role: "React Native Developer",
     period: "Mar 2022 — Jun 2023",
     description:
-      "Solo-built the mobile app UI covering menu browsing, order placement, and real-time delivery tracking. Implemented offline caching and image/list optimisations for 2G/3G target markets.",
-    stack: ["React Native", "Expo", "REST APIs"],
+      "Built and launched a full food delivery app solo while still in university — owned the entire product from architecture through App Store and Play Store deployment. Integrated Paystack payment gateway end-to-end, including webhook reconciliation to eliminate failed and stuck transactions.",
+    stack: ["React Native", "Expo", "Paystack", "REST APIs"],
   },
   {
     company: "Side Hustle",
-    role: "Frontend Developer (Internship)",
+    role: "Frontend Developer (Intern)",
     period: "Apr 2021 — Feb 2022",
     description:
-      "Shipped production features and reusable UI components for a full-stack MERN application as part of a 5-engineer team.",
+      "Contributed production features to a MERN-stack application as part of a small, fast-moving team. Built reusable UI components and integrated backend APIs.",
     stack: ["React", "Node.js", "MongoDB", "Express"],
   },
 ];

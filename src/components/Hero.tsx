@@ -138,7 +138,8 @@ export default function Hero() {
           </MagneticButton>
 
           <MagneticButton
-            href={profile.resumeUrl}
+            href={`${import.meta.env.BASE_URL}${profile.resumeUrl}`}
+            download="Michael_Olotu_Resume.pdf"
             className="flex items-center gap-2 rounded-2xl border border-white/15 bg-white/[0.02] px-7 py-3.5 font-medium text-white"
           >
             Download CV

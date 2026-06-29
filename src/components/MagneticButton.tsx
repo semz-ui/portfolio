@@ -5,6 +5,7 @@ import { useRef } from "react";
 type Props = {
   children: ReactNode;
   href?: string;
+  download?: string;
   onClick?: () => void;
   className?: string;
   strength?: number;
@@ -14,6 +15,7 @@ type Props = {
 export default function MagneticButton({
   children,
   href,
+  download,
   onClick,
   className = "",
   strength = 0.35,
@@ -55,7 +57,7 @@ export default function MagneticButton({
 
   if (href) {
     return (
-      <a href={href} onClick={onClick} className="inline-block">
+      <a href={href} download={download} onClick={onClick} className="inline-block">
         {inner}
       </a>
     );
