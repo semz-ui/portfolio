@@ -1,11 +1,12 @@
 import { profile } from "../data";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="border-t border-white/5 py-10">
       <div className="container-x flex flex-col items-center justify-between gap-4 sm:flex-row">
         <p className="text-sm text-slate-500">
-          © {2026} {profile.name}. Crafted with React, Tailwind &amp; Framer
+          © {year} {profile.name}. Crafted with React, Tailwind &amp; Framer
           Motion.
         </p>
         <div className="flex items-center gap-5">
