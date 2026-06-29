@@ -70,69 +70,70 @@ function TiltCard({ project, index }: { project: Project; index: number }) {
     ry.set(0);
   };
 
-  const hasStoreLinks = !!project.storeLinks;
+  // const hasStoreLinks = !!project.storeLinks;
   const isLinked = project.link !== "#";
-  const Wrapper = isLinked ? motion.a : motion.div;
-  const wrapperProps = isLinked ? { href: project.link } : {};
+
+  const cardContent = (
+    <div className="relative h-full rounded-[calc(1.5rem-1px)] p-7 sm:p-9">
+      <div
+        className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${project.accent} opacity-60 transition-opacity duration-500 group-hover:opacity-100`}
+      />
+      <motion.div
+        style={{ background: glare }}
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      />
+      <div className="flex items-start justify-between">
+        <span className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
+          {project.category}
+        </span>
+        <span className="font-mono text-xs text-slate-500">{project.year}</span>
+      </div>
+      <div className="mt-16 flex items-end justify-between gap-4 sm:mt-24">
+        <div>
+          <h3 className="font-display text-2xl font-semibold text-white sm:text-3xl">
+            {project.title}
+          </h3>
+          <p className="mt-3 max-w-md text-slate-300/90">{project.description}</p>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {project.tags.map((t) => (
+              <li
+                key={t}
+                className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-slate-300 backdrop-blur-sm"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
+          {project.storeLinks && <StoreButtons storeLinks={project.storeLinks} />}
+        </div>
+        {isLinked && (
+          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-ink-950">
+            <ArrowUpRight size={20} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  const sharedMotionProps = {
+    onMouseMove: handleMove,
+    onMouseLeave: reset,
+    style: { rotateX: srx, rotateY: sry, transformPerspective: 1000 },
+    className: "group relative block h-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-px",
+    "data-cursor": "hover",
+  } as const;
 
   return (
     <Reveal as="article" delay={(index % 2) * 0.08}>
-      <Wrapper
-        {...(wrapperProps as React.ComponentProps<typeof motion.a>)}
-        onMouseMove={handleMove}
-        onMouseLeave={reset}
-        style={{ rotateX: srx, rotateY: sry, transformPerspective: 1000 }}
-        className="group relative block h-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 p-px"
-        data-cursor="hover"
-      >
-        <div className="relative h-full rounded-[calc(1.5rem-1px)] p-7 sm:p-9">
-          {/* gradient wash */}
-          <div
-            className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${project.accent} opacity-60 transition-opacity duration-500 group-hover:opacity-100`}
-          />
-          {/* glare */}
-          <motion.div
-            style={{ background: glare }}
-            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          />
-
-          <div className="flex items-start justify-between">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-              {project.category}
-            </span>
-            <span className="font-mono text-xs text-slate-500">
-              {project.year}
-            </span>
-          </div>
-
-          <div className="mt-16 flex items-end justify-between gap-4 sm:mt-24">
-            <div>
-              <h3 className="font-display text-2xl font-semibold text-white sm:text-3xl">
-                {project.title}
-              </h3>
-              <p className="mt-3 max-w-md text-slate-300/90">
-                {project.description}
-              </p>
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {project.tags.map((t) => (
-                  <li
-                    key={t}
-                    className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-slate-300 backdrop-blur-sm"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-              {project.storeLinks && <StoreButtons storeLinks={project.storeLinks} />}
-            </div>
-            {isLinked && (
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-ink-950">
-                <ArrowUpRight size={20} />
-              </div>
-            )}
-          </div>
-        </div>
-      </Wrapper>
+      {isLinked ? (
+        <motion.a href={project.link} target="_blank" rel="noopener noreferrer" {...sharedMotionProps}>
+          {cardContent}
+        </motion.a>
+      ) : (
+        <motion.div {...sharedMotionProps}>
+          {cardContent}
+        </motion.div>
+      )}
     </Reveal>
   );
 }
