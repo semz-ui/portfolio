@@ -23,6 +23,7 @@ function AnimatedHeadline({
       variants={charContainer}
       initial="hidden"
       animate="show"
+      style={{ perspective: 600 }}
       className={`inline-block ${className}`}
       aria-label={text}
     >
@@ -31,6 +32,7 @@ function AnimatedHeadline({
           key={i}
           variants={charChild}
           className="inline-block"
+          style={{ transformOrigin: "bottom" }}
         >
           {char === " " ? " " : char}
         </motion.span>

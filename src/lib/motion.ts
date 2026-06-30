@@ -39,10 +39,11 @@ export const charContainer: Variants = {
 };
 
 export const charChild: Variants = {
-  hidden: { opacity: 0, y: "0.4em" },
+  hidden: { opacity: 0, y: "0.6em", rotateX: -40 },
   show: {
     opacity: 1,
     y: "0em",
-    transition: { duration: 0.5, ease: easeOutExpo },
+    rotateX: 0,
+    transition: { duration: 0.6, ease: easeOutExpo },
   },
 };
